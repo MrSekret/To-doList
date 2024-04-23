@@ -1,0 +1,25 @@
+{
+  "name": "to-dolistonpurejs",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "devDependencies": {
+    "css-loader": "^7.1.1",
+    "sass": "^1.75.0",
+    "sass-loader": "^14.2.0",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open --hot"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "html-webpack-plugin": "^5.6.0"
+  }
+}
