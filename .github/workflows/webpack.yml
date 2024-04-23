@@ -1,0 +1,37 @@
+name: Building project with Webpack
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v4
+    - name: Install dependencies
+      run: npm install
+    - name: Webpack build
+      run: npx webpack --mode=production
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
+    - name: Upload Artifact
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: './dist'
+        branch: main
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
+        
