@@ -145,9 +145,9 @@ export class TaskHanlders {
             Task.closeFn()
         })
     }
-    static open(task, taskInd){
+    static open(taskname, taskInd){
         const allTasks = app.querySelectorAll(".content__tasks-main__task")
-        const localTask = UserStorage.getTask(task)
+        const localTask = UserStorage.getTask(taskname)
         const trash = allTasks[taskInd].querySelector('.delete')
         if(localTask.status){
             allTasks[taskInd].removeEventListener('click', Task.openFn)

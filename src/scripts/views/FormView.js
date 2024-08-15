@@ -48,6 +48,13 @@ class Form{
         const content__tasks = app.querySelector(".content__tasks")
         const content__form = app.querySelector(".content__form")
         const star = content__form.querySelector(".add-star")
+        content__form.innerHTML = Form.Layout(false)
+
+        const backButtonElem = app.querySelector('.fa-chevron-left')
+        backButtonElem.addEventListener('click', (event) => {
+            Form.backFn(event)
+        })
+        
         star.classList.remove("fa-solid")
         star.classList.remove("fa-regular")
         star.classList.add("fa-regular")
